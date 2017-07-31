@@ -1,0 +1,13 @@
+﻿@model WildLifeTracker.Models.Species
+
+<html>
+<head>
+    <title>Wildlife Tracker - Details</title>
+</head>
+<body>
+    <h2>Details</h2>
+    <hr />
+    @Html.DisplayNameFor(model => model.name): @Html.DisplayFor(model => model.name)
+    <p>@Html.ActionLink("Back to list", "Index")</p>
+</body>
+</html>

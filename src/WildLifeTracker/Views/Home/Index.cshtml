@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Wild Life Tracker";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<WildLifeTracker.Models.Species>
+
+
+<h2>Species</h2>
+<hr />
+<h4>@Html.DisplayNameFor(model => model.name)</h4>
+<ul>
+    @foreach (var listSpecies in Model)
+    {
+        <li>@Html.DisplayFor(modelItem => listSpecies.name) | @Html.ActionLink("Details", "Details", new { id = listSpecies.speciesId}) | @Html.ActionLink("Edit", "Edit", new { id = listSpecies.speciesId}) | @Html.ActionLink("Delete", "Delete", new { id = listSpecies.speciesId})</li>
+    }
+</ul>
+<p>@Html.ActionLink("Add new species", "Create")</p>

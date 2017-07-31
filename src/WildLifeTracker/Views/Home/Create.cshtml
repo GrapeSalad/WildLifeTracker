@@ -1,0 +1,19 @@
+﻿@model WildLifeTracker.Models.Species
+
+<html>
+<head>
+    <title>Wildlife Tracker - Create</title>
+</head>
+<body>
+    <h2>Create</h2>
+    <hr />
+    <h4>Add a new species</h4>
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.name)
+        @Html.TextBoxFor(model => model.name)
+        <input type="submit" value="Add new species" />
+    }
+    <p>@Html.ActionLink("Back to list", "Index")</p>
+</body>
+</html>

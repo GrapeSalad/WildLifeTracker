@@ -1,0 +1,24 @@
+﻿@model WildLifeTracker.Models.Species
+
+<html>
+<head>
+    <title>Wildlife Tracker - Edit</title>
+</head>
+<body>
+    <h2>Edit</h2>
+    <hr />
+    <h4>Edit this species: @Html.DisplayFor(model => model.name)</h4>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.speciesId)
+
+        @Html.LabelFor(model => model.name)
+        @Html.EditorFor(model => model.name)
+
+        <input type="submit" value="Save" />
+    }
+    <p>@Html.ActionLink("Back to list", "Index")</p>
+
+</body>
+</html>
