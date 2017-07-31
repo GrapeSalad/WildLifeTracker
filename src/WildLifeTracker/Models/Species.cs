@@ -11,8 +11,13 @@ namespace WildLifeTracker.Models
     [Table("species")]
     public class Species
     {
+        public Species()
+        {
+            this.Sightings = new HashSet<Sighting>();
+        }
         [Key]
         public int speciesId { get; set; }
         public string name { get; set; }
+        public virtual ICollection<Sighting> Sightings { get; set; }
     }
 }

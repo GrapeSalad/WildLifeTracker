@@ -2,16 +2,38 @@
     ViewData["Title"] = "Wild Life Tracker";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model IEnumerable<WildLifeTracker.Models.Species>
+@*@model IEnumerable<WildLifeTracker.Models.Species>*@
+@model IEnumerable<WildLifeTracker.Models.Sighting>
 
 
 <h2>Species</h2>
 <hr />
-<h4>@Html.DisplayNameFor(model => model.name)</h4>
-<ul>
-    @foreach (var listSpecies in Model)
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Species.name)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var listSightings in Model)
     {
-        <li>@Html.DisplayFor(modelItem => listSpecies.name) | @Html.ActionLink("Details", "Details", new { id = listSpecies.speciesId}) | @Html.ActionLink("Edit", "Edit", new { id = listSpecies.speciesId}) | @Html.ActionLink("Delete", "Delete", new { id = listSpecies.speciesId})</li>
+       <tr>
+            <td>
+                @Html.DisplayFor(modelSpecies => listSightings.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelSpecies => listSightings.Species.name)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = listSightings.speciesId }) |@Html.ActionLink("Edit", "Edit", new { id = listSightings.speciesId }) | @Html.ActionLink("Delete", "Delete", new { id = listSightings.speciesId })
+            </td>
+        </tr>
     }
+
+</table>
+<ul>
 </ul>
 <p>@Html.ActionLink("Add new species", "Create")</p>

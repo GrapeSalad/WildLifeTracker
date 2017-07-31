@@ -1,13 +1,13 @@
 ﻿@model WildLifeTracker.Models.Species
 
-<html>
-<head>
-    <title>Wildlife Tracker - Details</title>
-</head>
-<body>
-    <h2>Details</h2>
-    <hr />
-    @Html.DisplayNameFor(model => model.name): @Html.DisplayFor(model => model.name)
-    <p>@Html.ActionLink("Back to list", "Index")</p>
-</body>
-</html>
+@{
+    ViewData["Title"] = "Species - Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Species Details</h2>
+<hr />
+<p>@Html.DisplayNameFor(model => model.name): @Html.DisplayFor(model => model.name)</p>
+<p>@Html.DisplayNameFor(model => model.Sighting): @Html.DisplayFor(model => model.Sighting)</p>
+
+<p>@Html.ActionLink("Edit", "Edit", new { id = Model.speciesId }) | @Html.ActionLink("Back to list", "Index")</p>

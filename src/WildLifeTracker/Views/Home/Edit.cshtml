@@ -1,24 +1,25 @@
 ﻿@model WildLifeTracker.Models.Species
 
-<html>
-<head>
-    <title>Wildlife Tracker - Edit</title>
-</head>
-<body>
-    <h2>Edit</h2>
-    <hr />
-    <h4>Edit this species: @Html.DisplayFor(model => model.name)</h4>
+@{
+    ViewData["Title"] = "Item - Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-    @using (Html.BeginForm())
-    {
-        @Html.HiddenFor(model => model.speciesId)
+<h2>Edit</h2>
+<hr />
+<h4>Edit this species: @Html.DisplayFor(model => model.name)</h4>
 
-        @Html.LabelFor(model => model.name)
-        @Html.EditorFor(model => model.name)
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.speciesId)
 
-        <input type="submit" value="Save" />
-    }
-    <p>@Html.ActionLink("Back to list", "Index")</p>
+    @Html.LabelFor(model => model.name)
+    @Html.EditorFor(model => model.name)
 
-</body>
-</html>
+    @Html.LabelFor(model => model.Sighting.sightingId)
+    @Html.DropDownList("sightingsId")
+
+    <input type="submit" value="Save" class="btn btn-default"/>
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>
+
